@@ -1,0 +1,28 @@
+
+name: Build STUBE2B VST3
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Download project
+        uses: actions/checkout@v4
+
+      - name: Configure CMake
+        run: cmake -S . -B build -A x64
+
+      - name: Build VST3
+        run: cmake --build build --config Release --target STUBE2B_VST3
+
+      - name: Upload VST3 plugin
+        uses: actions/upload-artifact@v4
+        with:
+          name: STUBE2B-VST3
+          path: build/STUBE2B_artefacts/Release/VST3/
+          if-no-files-found: error
