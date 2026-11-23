@@ -31,6 +31,7 @@ juce_generate_juce_header(STUBE2B)
 target_compile_definitions(STUBE2B
     PUBLIC
         JUCE_VST3_CAN_REPLACE_VST2=0
+)
 
 target_sources(STUBE2B
     PRIVATE
@@ -47,3 +48,4 @@ target_link_libraries(STUBE2B
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags
 )
+ 
