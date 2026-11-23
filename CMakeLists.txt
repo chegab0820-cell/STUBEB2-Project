@@ -28,6 +28,10 @@ juce_add_plugin(STUBE2B
 
 juce_generate_juce_header(STUBE2B)
 
+target_compile_definitions(STUBE2B
+    PUBLIC
+        JUCE_VST3_CAN_REPLACE_VST2=0
+
 target_sources(STUBE2B
     PRIVATE
         PluginProcessor.cpp
